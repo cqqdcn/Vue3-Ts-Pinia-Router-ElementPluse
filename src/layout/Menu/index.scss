@@ -1,0 +1,26 @@
+.el-menu-vertical-demo{
+  height: calc(100% - 55px)
+}
+.el-menu{
+  border: 0;
+}
+.logo{
+  height:55px;
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  background-color:#191a20;
+  border-bottom: 1px solid #282a35;
+  flex-wrap: nowrap;
+  img{
+    width: 36px;
+  }
+  p{
+    color: #dadada;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+}

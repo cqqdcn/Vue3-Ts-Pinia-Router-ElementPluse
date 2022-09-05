@@ -1,0 +1,23 @@
+.hooksforom{
+  background: #fff;
+  height: calc(100% - 40px);
+  border-radius: 4px;
+  box-shadow: var(--el-box-shadow-light);
+  padding: 20px;
+}
+:deep(.cell){
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+:deep(.el-table__header tr th){
+  background: #fafafa;
+}
+.hooksforom_1{
+  margin-bottom: 15px;
+}
+.el-pagination{
+  text-align: center;
+  margin-top: 30px;
+}

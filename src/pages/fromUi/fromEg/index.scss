@@ -1,0 +1,37 @@
+.container{
+  background: #fff;
+  padding: 50px 40px;
+}
+.demo-ruleForm{
+  width: 800px;
+}
+.slider-demo-block {
+  display: flex;
+  align-items: center;
+}
+.slider-demo-block .el-slider {
+  margin-top: 0;
+  margin-left: 12px;
+}
+.slider-demo-block .demonstration {
+  font-size: 14px;
+  color: var(--el-text-color-secondary);
+  line-height: 44px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+.slider-demo-block .demonstration + .el-slider {
+  flex: 0 0 70%;
+}
+.container_1{
+  width: 1200px;
+  margin-bottom: 40px;
+}
+.h3{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
