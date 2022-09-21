@@ -1,36 +1,38 @@
 <template>
-    <div class="hooksforom">
-        <div class="hooksforom_1">
-            <el-button type="primary" :icon="CirclePlus" color="#009688" @click="addUser('AddUser','')">新增用户</el-button>
-            <!-- <el-button type="primary" :icon="Upload" plain color="#009688">批量添加用户</el-button> -->
-            <el-button type="primary" :icon="Download" plain color="#009688" @click="deriveExcel">导出用户数据</el-button>
-            <el-button type="danger" :icon="DeleteFilled" plain @click="removeDataMore">批量删除用户</el-button>
+    <div>
+        <div class="hooksforom">
+            <div class="hooksforom_1">
+                <el-button type="primary" :icon="CirclePlus" color="#009688" @click="addUser('AddUser','')">新增用户</el-button>
+                <!-- <el-button type="primary" :icon="Upload" plain color="#009688">批量添加用户</el-button> -->
+                <el-button type="primary" :icon="Download" plain color="#009688" @click="deriveExcel">导出用户数据</el-button>
+                <el-button type="danger" :icon="DeleteFilled" plain @click="removeDataMore">批量删除用户</el-button>
+            </div>
+            <div class="hooksforom_2">
+                <el-table :data="table.tableData" style="width: 100%" height="590" border id="exportForm" @selection-change="handleSelectionChange">
+                    <el-table-column prop="user_id" type="selection" width="55" />
+                    <el-table-column prop="username" label="用户姓名" width="120" />
+                    <el-table-column prop="sex" label="性别" width="120" />
+                    <el-table-column prop="idCard" label="身份证" width="250" />
+                    <el-table-column prop="email" label="邮箱" width="250" />
+                    <el-table-column prop="address" label="居住地址" width="240" />
+                    <el-table-column prop="createTime" label="创建时间" width="120" />
+                    <el-table-column prop="status" label="用户状态" width="150" v-slot="scope">
+                        <el-switch :value="scope.row.status === 0?true:false" class="mt-2" inline-prompt :active-icon="Check" :inactive-icon="Close" @change="changeSwitch($event)" />
+                    </el-table-column>
+                    <el-table-column label="操作" width="305" v-slot="scope">
+                        <el-button type="primary" link :icon="EditPen" @click="addUser('EditorUser',scope.row)">编辑</el-button>
+                        <el-button type="primary" link :icon="Refresh">重置密码</el-button>
+                        <el-button type="primary" link :icon="Delete" @click="removeData(scope.row.user_id)">删除</el-button>
+                    </el-table-column>
+                </el-table>
+                <el-pagination v-model:currentPage="pageNum" v-model:page-size="pageSize" :page-sizes="[5, 10, 15, 20]" background layout="total, sizes, prev, pager, next, jumper" :total="total" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
+            </div>
         </div>
-        <div class="hooksforom_2">
-            <el-table :data="table.tableData" style="width: 100%" height="590" border id="exportForm" @selection-change="handleSelectionChange">
-                <el-table-column prop="user_id" type="selection" width="55" />
-                <el-table-column prop="username" label="用户姓名" width="120" />
-                <el-table-column prop="sex" label="性别" width="120" />
-                <el-table-column prop="idCard" label="身份证" width="250" />
-                <el-table-column prop="email" label="邮箱" width="250" />
-                <el-table-column prop="address" label="居住地址" width="240" />
-                <el-table-column prop="createTime" label="创建时间" width="120" />
-                <el-table-column prop="status" label="用户状态" width="150" v-slot="scope">
-                    <el-switch :value="scope.row.status === 0?true:false" class="mt-2" inline-prompt :active-icon="Check" :inactive-icon="Close" @change="changeSwitch($event)" />
-                </el-table-column>
-                <el-table-column label="操作" width="305" v-slot="scope">
-                    <el-button type="primary" link :icon="EditPen" @click="addUser('EditorUser',scope.row)">编辑</el-button>
-                    <el-button type="primary" link :icon="Refresh">重置密码</el-button>
-                    <el-button type="primary" link :icon="Delete" @click="removeData(scope.row.user_id)">删除</el-button>
-                </el-table-column>
-            </el-table>
-            <el-pagination v-model:currentPage="pageNum" v-model:page-size="pageSize" :page-sizes="[5, 10, 15, 20]" background layout="total, sizes, prev, pager, next, jumper" :total="total" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
-        </div>
+        <!-- 添加用户 -->
+        <AddUser v-model:statusShow="statusShow" @updataReq="repeatReq" v-if="showHide=='AddUser'?true:false"></AddUser>
+        <!-- 编辑用户 -->
+        <EditorUser v-model:statusShow="statusShow" @updataReq="repeatReq" v-if="showHide=='EditorUser'?true:false" v-model:obj="obj"></EditorUser>
     </div>
-    <!-- 添加用户 -->
-    <AddUser v-model:statusShow="statusShow" @updataReq="repeatReq" v-if="showHide=='AddUser'?true:false"></AddUser>
-    <!-- 编辑用户 -->
-    <EditorUser v-model:statusShow="statusShow" @updataReq="repeatReq" v-if="showHide=='EditorUser'?true:false" v-model:obj="obj"></EditorUser>
 </template>
 
 <script setup lang="ts">

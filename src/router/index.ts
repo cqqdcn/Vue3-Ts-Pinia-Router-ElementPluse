@@ -144,10 +144,21 @@ const routes: RouteRecordRaw[] = [
           title: "基础 From",
           key: "textFrom2"
         }
+      },
+      {
+        path: "/text/textFrom3",
+        name: "textFrom3",
+        component: () => import('@/pages/fromUi/editor/index.vue'),
+        meta: {
+          keepAlive: true,
+          requiresAuth: true,
+          title: "基础 Editor",
+          key: "textFrom3"
+        }
       }
     ]
   },
-  {
+  {  
     // 找不到路由重定向到404页面
     path: "/:pathMatch(.*)",
     component: () => import('@/pages/login/Login.vue'),

@@ -161,8 +161,6 @@
     // 扇形图
     const getEchartsdata = async () => {
         const res: any = await echartApi.getecharts()
-        console.log(res);
-        
         res.data.filter((item: any) => {
             delete item.id //过滤删除id属性
         })

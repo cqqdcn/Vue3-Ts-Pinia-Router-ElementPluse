@@ -3,7 +3,7 @@
         <img src="@/assets/logo.png" alt="">
         <p v-show="isCollapse?false:true">Vue3 Admin</p>
     </div>
-    <el-menu :default-active="routeMenu" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose" 
+    <el-menu :default-active="routeMenu" class="el-menu-vertical-demo" :collapse="isCollapse"
     background-color="#191a20" text-color="rgb(189, 189, 192)" active-text-color="#fff" unique-opened="true" :collapse-transition="false"
     :router="true">
         <el-menu-item index="/home/index">
@@ -76,6 +76,12 @@
                     </el-icon>
                     <template #title>基础 Form</template>
                 </el-menu-item>
+                <el-menu-item index="/text/textFrom3">
+                    <el-icon>
+                        <icon-menu />
+                    </el-icon>
+                    <template #title>基础 Editor</template>
+                </el-menu-item>
             </el-menu-item-group>
         </el-sub-menu>
     </el-menu>
@@ -98,12 +104,12 @@
     
     const menuIcon = useMenuIcon()
     const isCollapse = computed(():boolean => menuIcon.isCollapse)
-    const handleOpen = (key:string, keyPath:string[]) => {
-        console.log(key, keyPath)
-    }
-    const handleClose = (key:string, keyPath:string[]) => {
-        console.log(key, keyPath)
-    }
+    // const handleOpen = (key:string, keyPath:string[]) => {
+    //     console.log(key, keyPath)
+    // }
+    // const handleClose = (key:string, keyPath:string[]) => {
+    //     console.log(key, keyPath)
+    // }
 </script>
 
 <style scoped lang="scss">
