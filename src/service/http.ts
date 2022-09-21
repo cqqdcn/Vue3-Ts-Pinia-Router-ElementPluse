@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 import NProgress from 'nprogress'
 
 // 设置请求头和请求路径
-axios.defaults.baseURL = 'http://127.0.0.1:3000/'
+axios.defaults.baseURL = 'http://127.0.0.1:3000/'//http://www.blogwhd.top:3000/
 axios.defaults.timeout = 10000
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 // 请求拦截

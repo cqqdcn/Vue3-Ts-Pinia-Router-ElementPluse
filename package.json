@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
+    "@wangeditor/editor": "^5.1.15",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^0.24.0",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.7",
@@ -20,7 +22,7 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.10",
     "pinia-plugin-persist": "^1.0.0",
-    "pinia-plugin-persistedstate": "^2.1.1",
+    "pinia-plugin-persistedstate": "^2.2.0",
     "vfonts": "^0.1.0",
     "vue": "^3.2.36",
     "vue-router": "4",

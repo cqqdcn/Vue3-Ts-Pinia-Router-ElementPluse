@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 export const useMainStore = defineStore({
   id: 'main',
   state: () => ({
-    username: 'admin',
-    password: 'e10adc3949ba59abbe56e057f20f883e'
+    username: '',
+    password: ''
   }),
   getters: {
     useGetter(state){
@@ -12,8 +12,8 @@ export const useMainStore = defineStore({
     }
   },
   actions: {
-    updateName(){
-
+    updateName(value:string){
+      this.username = value
     }
   },
 })

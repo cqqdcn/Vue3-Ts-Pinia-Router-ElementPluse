@@ -54,6 +54,7 @@
             if (res.status === 0) {
                 localStorage.setItem("token", res.token)
                 localStorage.setItem("username", res.username)
+                useMain.updateName(res.username)
                 ElMessage.success("登录成功！")
                 router.push({
                     path: '/home/index',
@@ -71,6 +72,16 @@
         if (!formEl) return
         formEl.resetFields()
     }
+
+    onMounted(() => {
+        // 监听enter事件（调用登录）
+        document.onkeydown = (e: any) => {
+            e = window.event || e;
+            if (e.code === "Enter" || e.code === "enter" || e.code === "NumpadEnter") {
+                submitForm(ruleFormRef.value);
+            }
+        };
+    })
 </script>
 
 <style scoped lang="scss">

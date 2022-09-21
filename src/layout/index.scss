@@ -13,6 +13,7 @@
 }
 .el-main{
   background-color:#f0f2f5;
+  overflow-x: hidden;
 }
 .el-footer{
   height:35px;
@@ -20,4 +21,23 @@
   text-align:center;
   color: #858585;
   font-size: 14px;
+}
+// :deep(.el-header){
+//   height: 90px;
+// }
+
+/* fade-transform */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
 }
