@@ -29,6 +29,17 @@ const routes: RouteRecordRaw[] = [
       key: "login"
     }
   },
+  // 数据大屏
+  {
+    path: '/dataScreen',
+    name: 'dataScreen',
+    component: () => import('@/pages/dataScreen/dataScreen.vue'),
+    meta: {
+      requiresAuth: false,
+      title: "数据大屏",
+      key: "dataScreen"
+    }
+  },
   // 首页
   {
     path: '/home',

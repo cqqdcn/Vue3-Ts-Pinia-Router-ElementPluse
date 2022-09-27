@@ -12,6 +12,12 @@
             </el-icon>
             <template #title>首页</template>
         </el-menu-item>
+        <el-menu-item index="/dataScreen">
+            <el-icon>
+                <Monitor />
+            </el-icon>
+            <template #title>数据大屏</template>
+        </el-menu-item>
         <el-sub-menu index="/form">
             <template #title>
                 <el-icon>
@@ -94,6 +100,7 @@
         Menu as IconMenu,
         Location,
         Setting,
+        Monitor
     } from '@element-plus/icons-vue'
     import { useMenuIcon } from "@/store/main"
     import { useRoute } from "vue-router";

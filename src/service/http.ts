@@ -70,6 +70,7 @@ const http: Http = {
         })
         .catch((err) => {
           NProgress.done()
+          ElMessage.error("抱歉服务器宕机了！！！")
           reject(err.data)
         })
     })
